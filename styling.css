@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+input{
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+#Login{
+    display: block;
+    margin: auto;
+    width: 25%;
+}
+
+#tilly{
+    display: block;
+    margin: auto;
+    wdith: 25%;
+}
