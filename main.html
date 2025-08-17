@@ -3,27 +3,37 @@
 <html>
     <head>
         <title>The Home Page :D</title>
+        <link href="./styling.css" rel="stylesheet">
+        <script src="./JS/FrontJS/button.js"></script>
+        <link rel="shortcut icon" href="#">
     </head>
 
     <body>
 
-        <h1 style="text-align: center;">
+        <h1>
             Hello,
             welcome to the main page stranger!
         </h1>
 
         <br>
 
-        <h2 style="text-align: center;">
+        <h2>
             This is just a place holder<br> for where the main page will be!
         </h2>
 
         <br>
         
+        <form>
+            <input type="text" id="User">
+            <br>
+            <input type="password" id="Pass">
+            <br>
+            <input id="Login" type="button" value="Login" onclick="login()">
+        </form>
+
         <br>
 
-        <img width="350" src="assets/images/IMG_6525.JPG" style="display: block; margin: auto; width: 65%;">
-
+        <img id="tilly" width="350" src="assets/images/IMG_6525.JPG">
     </body>
 
 </html>
