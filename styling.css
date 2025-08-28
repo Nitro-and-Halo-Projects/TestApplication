@@ -1,6 +1,18 @@
-h1, h2 ,p {
+body {
+    background-color: black;
+    background-size: cover;
+    color: white;
+}
+h1, p {
     font-family: sans-serif;
     text-align: center;
+}
+
+h2 {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
 }
 
 input {
@@ -13,10 +25,28 @@ input {
 
 div {
     border: 2.5px solid black;
+    margin: auto;
+    width: 1500px;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.692);
+}
+
+ul {
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 #Login {
