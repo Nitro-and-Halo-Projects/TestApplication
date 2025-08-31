@@ -2,38 +2,69 @@
 
 <html>
     <head>
-        <title>The Home Page :D</title>
         <link href="./styling.css" rel="stylesheet">
-        <script src="./JS/FrontJS/button.js"></script>
+        <title>halo better</title>
+        <script type="module" src="./JS/FrontJS/button.js"></script>
         <link rel="shortcut icon" href="#">
     </head>
 
     <body>
+        <div id="navBarDiv">
+            <table id="navBarTable">
+                <tbody>
+                    <tr>
+                        <td><a href="./home.html">Home</a></td>
+                        <td><a href="./main.html">Login</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="mainhtmlTitle">
 
         <h1>
-            Hello,
-            welcome to the main page stranger!
+            Nitro and Halo's HTML Project!
         </h1>
+        </div>
 
+        <div id="mainhtmlBody">
         <br>
 
         <h2>
-            This is just a place holder<br> for where the main page will be!
+            This is the login page!
+            <br> 
+            Please enter your username and password to login!
         </h2>
 
         <br>
+        </div>
         
+        <div id="mainhtmlForum">
+            <h2>
+                Login here!
+            </h2>
         <form>
+            <p>
+                Username
+            </p>
             <input type="text" id="User">
             <br>
+            <p>
+                Password
+            </p>
             <input type="password" id="Pass">
             <br>
-            <input id="Login" type="button" value="Login" onclick="login()">
+            <input id="Login" type="button" value="Login">
         </form>
+        <br>
+        <h1 id="status"></h1>
+        </div>
 
         <br>
 
+
+        <div id="mainhtmlTilly">
         <img id="tilly" width="350" src="assets/images/IMG_6525.JPG">
+        </div>
     </body>
 
 </html>
