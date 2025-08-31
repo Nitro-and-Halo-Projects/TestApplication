@@ -51,6 +51,10 @@ jobs:
           rm -rf node_modules           # Remove node_modules if it exists
           rm -rf testapplication.github.io  # Remove nested directory if copied
           
+          # Initialize git in the pages repo directory
+          git init
+          git remote add origin https://github.com/Nitro-and-Halo-Projects/testapplication.github.io.git
+          
           # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
