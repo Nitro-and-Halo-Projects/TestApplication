@@ -68,7 +68,8 @@ jobs:
           
           # Commit and push changes
           git commit -m "Deploy from ${{ github.repository }}@${{ github.sha }}"
-          git push
+          git branch -M main
+          git push --set-upstream origin main
 
       - name: Deployment status
         if: success()
