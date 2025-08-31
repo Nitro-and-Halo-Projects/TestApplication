@@ -100,6 +100,63 @@ div {
     height: 100px;
 }
 
+#mainhtmlTitle {
+    animation: fadeIn 2s;
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    height: 150px;
+    text-shadow: 3px 4px 4px rgb(0, 0, 0);
+}
+
+#mainhtmlBody {
+    animation: fadeIn 2s;
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    text-shadow: 3px 4px 4px rgb(0, 0, 0);
+}
+
+#mainhtmlForum {
+    animation: fadeIn 2s;
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+}
+
+#mainhtmlTilly {
+    animation: fadeIn 2s;
+}
+
+#signupTitle {
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    height: 150px;
+    text-shadow: 3px 4px 4px rgb(0, 0, 0);
+}
+
+#signupBody {
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    text-shadow: 3px 4px 4px rgb(0, 0, 0);
+}
+
+#signupForum {
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+}
+
 ul {
     background-color: #333;
 }
@@ -120,6 +177,12 @@ li a {
     display: block;
     margin: auto;
     width: 50px;
+}
+
+#signup {
+    display: block;
+    margin: auto;
+    width: 75px;
 }
 
 #tilly {
@@ -178,18 +241,3 @@ a {
     color: antiquewhite;
 }
 
-#mainhtmlTitle {
-    animation: fadeIn 2s;
-}
-
-#mainhtmlBody {
-    animation: fadeIn 2s;
-}
-
-#mainhtmlForum {
-    animation: fadeIn 2s;
-}
-
-#mainhtmlTilly {
-    animation: fadeIn 2s;
-}
