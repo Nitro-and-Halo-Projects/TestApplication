@@ -1,0 +1,77 @@
+name: Deploy to Pages Repo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4 # Updated to v4
+        with:
+          fetch-depth: 0 # Fetch full history for better git operations
+
+      - name: Setup Node.js (if using Node)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+        if: ${{ hashFiles('**/package.json') != '' }}
+
+      - name: Install dependencies and build
+        run: |
+          # Skip build step - this is a static website
+          echo "Static website detected - no build step needed"
+        if: ${{ hashFiles('**/package.json') != '' }}
+
+      - name: Checkout pages repo
+        uses: actions/checkout@v4
+        with:
+          repository: Nitro-and-Halo-Projects/testapplication.github.io
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: testapplication.github.io
+          fetch-depth: 0
+
+      - name: Copy files to pages repo
+        run: |
+          # Clean the pages repo but preserve .git directory
+          find testapplication.github.io -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          
+          # Copy all files from source to pages repo
+          echo "Copying all files to pages repository..."
+          cp -r * testapplication.github.io/ 2>/dev/null || true
+          
+          # Remove files/folders that shouldn't be deployed
+          cd testapplication.github.io
+          rm -rf .git                    # Remove any copied .git
+          rm -rf .github                 # Remove GitHub Actions workflows
+          rm -rf .vscode                 # Remove VS Code config
+          rm -f .gitignore              # Remove gitignore
+          rm -f README.md               # Remove readme
+          rm -f package*.json           # Remove npm files if they exist
+          rm -f *.md                    # Remove other markdown files
+          rm -rf node_modules           # Remove node_modules if it exists
+          rm -rf testapplication.github.io  # Remove nested directory if copied
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if there are changes to commit
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to deploy"
+            exit 0
+          fi
+          
+          # Add, commit and push changes
+          git add .
+          git commit -m "Deploy from ${{ github.repository }}@${{ github.sha }}"
+          git push
+
+      - name: Deployment status
+        if: success()
+        run: echo "✅ Successfully deployed to pages repository"
