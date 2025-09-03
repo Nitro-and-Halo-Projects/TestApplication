@@ -59,7 +59,7 @@ div {
     animation: fadeIn 2s;
     padding: 10px;
     border: #000000 solid 5px;
-    background-color: rgb(122, 122, 122);
+    background-image: linear-gradient(to right, #575757, #444444);
     margin: auto;
     width: 98%;
     height: 100px;
@@ -74,7 +74,7 @@ div {
     animation: fadeIn 2s;
     padding: 10px;
     border: #000000 solid 5px;
-    background-color: rgb(122, 122, 122);
+    background-image: linear-gradient(to right, #575757, #444444);
     margin: auto;
     width: 98%;
     height: 180px;
@@ -84,7 +84,7 @@ div {
     animation: fadeIn 2s;
     padding: 10px;
     border: #000000 solid 5px;
-    background-color: rgb(122, 122, 122);
+    background-image: linear-gradient(to right, #575757, #444444);
     margin: auto;
     width: 98%;
     height: 220px;
@@ -94,7 +94,7 @@ div {
     animation: fadeIn 2s;
     padding: 10px;
     border: #000000 solid 5px;
-    background-color: rgb(122, 122, 122);
+    background-image: linear-gradient(to right, #575757, #444444);
     margin: auto;
     width: 98%;
     height: 100px;
@@ -241,3 +241,18 @@ a {
     color: antiquewhite;
 }
 
+#footertext {
+    font-family: serif;
+    text-align: center;
+    padding: 10px;
+}
+
+#footer {
+    animation: fadeIn 2s;
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    height: 70px;
+}
