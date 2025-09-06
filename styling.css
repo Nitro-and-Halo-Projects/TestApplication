@@ -31,8 +31,9 @@ div {
     text-align: center;
 }
 
+
 #title {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     margin: auto;
     margin-bottom: 10px;
     background-image: url("./assets/images/purple-blue-gradient_78370-295.avif");
@@ -43,6 +44,7 @@ div {
 }
 
 #titleText {
+    animation: fadeIn 1s;
     font-size: 50px;
     padding-top: 350px;
     color: rgb(255, 255, 255);
@@ -50,13 +52,14 @@ div {
 }
 
 #titleText2 {
+    animation: fadeIn 1s;
     font-size: 25px;
     color: rgb(255, 255, 255);
     text-shadow: 3px 4px 4px #000000;
 }
 
 #undertitle {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     padding: 10px;
     border: #000000 solid 5px;
     background-image: linear-gradient(to right, #575757, #444444);
@@ -66,12 +69,13 @@ div {
 }
 
 #undertitleText {
+    animation: fadeIn 1s;
     font-family: monospace;
     color: rgb(255, 255, 255);
 }
 
 #sofar {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     padding: 10px;
     border: #000000 solid 5px;
     background-image: linear-gradient(to right, #575757, #444444);
@@ -81,7 +85,7 @@ div {
 }
 
 #future {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     padding: 10px;
     border: #000000 solid 5px;
     background-image: linear-gradient(to right, #575757, #444444);
@@ -91,7 +95,7 @@ div {
 }
 
 #devmessage {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
     padding: 10px;
     border: #000000 solid 5px;
     background-image: linear-gradient(to right, #575757, #444444);
@@ -191,6 +195,7 @@ li a {
     width: 20%;
 }
 
+
 #navBarTable {
     width: 300;
     height: 150;
@@ -200,22 +205,22 @@ li a {
     display: inline-block;
 }
 
-#navBarDiv {
-    animation: fadeIn 2;
-    position: sticky;
-    top: 0;
-    padding-top: 10px;
-    transition: width 2s;
-}
-
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
+#navBarDiv {
+    animation: fadeIn 2;
+    position: sticky;
+    top: 0;
+    padding-top: 10px;
+}
+
+
 @keyframes riseUp {
     0% {transform: translateY(0px);}
-    100% {transform: translateY(-2.5px)}
+    100% {transform: translateY(-2.5px);}
 }
 
 td {
