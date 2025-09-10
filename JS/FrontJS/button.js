@@ -8,6 +8,7 @@ const passTextField = document.getElementById("Pass");
 const loginButton = document.getElementById("Login");
 const loginStatusText = document.getElementById("status");
 loginButton.addEventListener("click", login);
+const URI = 'http://nitroandhaloprojectsbackendapi.dpdns.org/';
 
 function login() { // When button is clicked these functions are triggered
     console.log("Logging in...");
@@ -31,7 +32,7 @@ async function testPOST() { // Sends a POST request to the backend for it to be 
     const userString = `User: ${userTextField.value}\n Pass: ${passTextField.value}`
     try{
         loginStatusText.innerHTML = "Logging you in... 🧾"
-        const response = await fetch("http://localhost:8080/testpost", {
+        const response = await fetch(URI, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -58,3 +59,5 @@ async function testPOST() { // Sends a POST request to the backend for it to be 
 async function sendToBackend() { // This function will be used to send the data to the backend for verification
    
 };
+
+console.log()

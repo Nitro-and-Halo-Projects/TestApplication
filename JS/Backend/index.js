@@ -3,17 +3,24 @@ const express = require('express');
 const app = express();
 app.use( express.json() );
 const cors = require('cors');
-const PORT = 8080;
+const ipGrab = require('./ipScanning');
+require('dotenv').config();
+const PORT = process.env.PORT;
 app.use(cors({ // Middleware allowing for API requests from authorized sources
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', '*', 'http://nitroandhaloprojectsbackendapi.dpdns.org:8080'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 console.log("running");
 app.listen(
     PORT,
-    () => console.log(`Its alive on: http://localhost:${PORT}`)
+    messageConsole()
 )
+
+async function messageConsole() {
+    let ipAddr = await ipGrab.grabIP();
+    console.log(await `Api endpoint: ${ipAddr['ip']}` + `:${PORT}`);
+}
 
 app.get('/test', (req, res) => { // Simple GET request
     res.status(200).send({
