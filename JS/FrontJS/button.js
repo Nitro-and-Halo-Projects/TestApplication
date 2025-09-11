@@ -59,5 +59,3 @@ async function testPOST() { // Sends a POST request to the backend for it to be 
 async function sendToBackend() { // This function will be used to send the data to the backend for verification
    
 };
-
-console.log()

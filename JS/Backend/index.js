@@ -20,12 +20,12 @@ const options = {
 const httpsServer = https.createServer(options, app);
 const PORT = process.env.PORT;
 app.use(cors({ // Middleware allowing for API requests from authorized sources
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', '*', 'https://nitroandhaloprojectsbackendapi.dpdns.org/test', 'https://nitroandhaloprojectsbackendapi.dpdns.org/testpost'],
+    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', 'http://127.0.0.1:5500', 'http://192.168.0.12:5500', 'https://nitroandhaloprojectsbackendapi.dpdns.org/test', 'https://nitroandhaloprojectsbackendapi.dpdns.org/testpost'],
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 console.log("running");
-app.listen(
+httpsServer.listen(
     PORT,
     "0.0.0.0",
     messageConsole()
