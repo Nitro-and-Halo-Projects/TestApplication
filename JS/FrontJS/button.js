@@ -8,7 +8,7 @@ const passTextField = document.getElementById("Pass");
 const loginButton = document.getElementById("Login");
 const loginStatusText = document.getElementById("status");
 loginButton.addEventListener("click", login);
-const URI = 'http://nitroandhaloprojectsbackendapi.dpdns.org:8080/';
+const URI = 'https://nitroandhaloprojectsbackendapi.dpdns.org/';
 
 function login() { // When button is clicked these functions are triggered
     console.log("Logging in...");

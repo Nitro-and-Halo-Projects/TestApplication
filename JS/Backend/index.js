@@ -7,6 +7,12 @@ app.use( express.json() );
 const cors = require('cors');
 const ipGrab = require('./ipScanning');
 require('dotenv').config();
+const privateKey = process.env.KEY;
+const privateCert = process.env.CERT;
+const privateKeyBuffer = Buffer.from(privateKey, "base64");
+const privateCertBuffer = Buffer.from(privateCert, "base64");
+fs.writeFileSync('./key.pem', privateKeyBuffer);
+fs.writeFileSync('./cert.pem', privateCertBuffer);
 const options = {
     key: fs.readFileSync('./key.pem'),
     cert: fs.readFileSync('./cert.pem')
@@ -14,7 +20,7 @@ const options = {
 const httpsServer = https.createServer(options, app);
 const PORT = process.env.PORT;
 app.use(cors({ // Middleware allowing for API requests from authorized sources
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', '*', 'https://nitroandhaloprojectsbackendapi.dpdns.org:8080'],
+    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', '*', 'https://nitroandhaloprojectsbackendapi.dpdns.org/test', 'https://nitroandhaloprojectsbackendapi.dpdns.org/testpost'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
