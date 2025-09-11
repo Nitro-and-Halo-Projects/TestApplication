@@ -25,7 +25,7 @@ app.use(cors({ // Middleware allowing for API requests from authorized sources
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 console.log("running");
-httpsServer.listen(
+app.listen(
     PORT,
     "0.0.0.0",
     messageConsole()
