@@ -9,7 +9,7 @@ const ipGrab = require('./ipScanning');
 require('dotenv').config();
 const privateKey = process.env.KEY;
 const privateCert = process.env.CERT;
-//const privateKeyBuffer = Buffer.from(privateKey, "base64");
+//const privateKeyBuffer = Buffer.from(privateKey, "base64");  *START| This code if uncommented allows you to force https*
 //const privateCertBuffer = Buffer.from(privateCert, "base64");
 //fs.writeFileSync('./key.pem', privateKeyBuffer);
 //fs.writeFileSync('./cert.pem', privateCertBuffer);
@@ -17,13 +17,18 @@ const privateCert = process.env.CERT;
     key: fs.readFileSync('./key.pem'),
     cert: fs.readFileSync('./cert.pem')
 };*/
-//const httpsServer = https.createServer(options, app);
+//const httpsServer = https.createServer(options, app);        *END| End of https code
 const PORT = process.env.PORT;
-app.use(cors({ // Middleware allowing for API requests from authorized sources
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'http://127.0.0.1:8080', 'http://127.0.0.1:5500', 'http://192.168.0.12:5500', 'https://nitroandhaloprojectsbackendapi.dpdns.org/test', 'https://nitroandhaloprojectsbackendapi.dpdns.org/testpost'],
+app.use(cors()); // <-- This is called a wildcard. It allows anyone from anywhere to use this API
+
+// The commented code below allows you to restrict what sources can request services from the API
+
+/*app.use(cors({ // Middleware allowing for API requests from authorized sources
+    origin: ['*','http://127.0.0.1:5500/','http://127.0.0.1:5500/login.html','https://nitroandhaloprojectsbackendapi.dpdns.org/test', 'https://nitroandhaloprojectsbackendapi.dpdns.org/testpost'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+}));*/ 
+
 console.log("running");
 app.listen(
     PORT,
@@ -38,7 +43,7 @@ async function messageConsole() {
 
 app.get('/test', (req, res) => { // Simple GET request
     res.status(200).send({
-        message: "Working!"
+        message: "API is up and running!"
     })
 })
 

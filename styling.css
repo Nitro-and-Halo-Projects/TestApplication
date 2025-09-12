@@ -183,6 +183,12 @@ li a {
     width: 50px;
 }
 
+#devmode {
+    display: block;
+    margin: auto;
+    width: 70px;
+}
+
 #signup {
     display: block;
     margin: auto;
@@ -260,4 +266,18 @@ a {
     margin: auto;
     width: 98%;
     height: 70px;
+}
+
+#switchtolocalhost {
+    animation: fadeIn 2;
+    padding: 10px;
+    border: #000000 solid 5px;
+    background-image: linear-gradient(to right, #575757, #444444);
+    margin: auto;
+    width: 98%;
+    height: auto;
+}
+
+#devmode {
+    width: auto;
 }

@@ -14,7 +14,7 @@
                 <tbody>
                     <tr>
                         <td><a href="./index.html">Home</a></td>
-                        <td><a href="./main.html">Login</a></td>
+                        <td><a href="./login.html">Login</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -63,12 +63,29 @@
             <br>
             <input id="Login" type="button" value="Login">
         </form>
-        <br>
         <h1 id="status"></h1>
         </div>
 
-        <br>
+        <div id="switchtolocalhost">
+            <h1>Locally hosting the backend?</h1>
+            <br>
+            <p>
+                If you are editing the backend or wanting to locally host it on your device in order for this website to use your backend instead of
+                the one we host for you simply click the button below to enable local host mode which will set the URI from our self-hosted api to the api
+                at, "http://127.0.0.1:5500/" <br><br> If you are not happy with the API endpoint URI chosen for local host mode go into "JS/FrontJS/button.js" and change the "localURI" variable 
+                to your endpoint
+                <br><br>
+                A quick tip: When putting in your URI it NEEDS to end with a forward slash -> /
+                <br>
+                <br> If you dont know what your local URI is when running a express script via node.js it will almost always be your private ip + port so like this: http://IP:PORT/ 
+            </p>
+            <br>
+            <input id="localmode" type="button" value="Local host mode">
+            <h1 id="localmodestatus"></h1>
+            <p id="localuri"></p>
+        </div>
 
+        <br>
 
         <div id="mainhtmlTilly">
         <img id="tilly" width="350" src="assets/images/IMG_6525.JPG">

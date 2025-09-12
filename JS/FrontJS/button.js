@@ -6,20 +6,46 @@ document.addEventListener("DOMContentLoaded", function() { // Tells me when DOM 
 const userTextField = document.getElementById("User");
 const passTextField = document.getElementById("Pass");
 const loginButton = document.getElementById("Login");
+const localHostModeButton = document.getElementById("localmode");
 const loginStatusText = document.getElementById("status");
+const localHostModeStatusText = document.getElementById("localmodestatus");
+const localURIAddress = document.getElementById("localuri");
 loginButton.addEventListener("click", login);
-const URI = 'https://nitroandhaloprojectsbackendapi.dpdns.org/';
+localHostModeButton.addEventListener("click", enableDevMode);
+// Initialising global variables
+const URI = 'https://nitroandhaloprojectsbackendapi.dpdns.org/'; // <-- This is the endpoint we host for you
+const localURI = 'http://127.0.0.1:5050/'; // <-- here is where you edit the local host mode endpoint
+let devMode = false;
 
-function login() { // When button is clicked these functions are triggered
+function login() { // When login button is clicked these functions are triggered
     console.log("Logging in...");
     testGET();
     testPOST();
     sendToBackend();
 }
+let devmodeonoroff = false;
+function enableDevMode() { // When localhostmode button is pressed this is fired
+    if (devmodeonoroff = !devmodeonoroff) { // Acts as an on/off switch
+        console.log("local host mode: ON");
+        devmodeonoroff = true;
+        devMode = true;
+        localHostModeStatusText.innerHTML = "Local host mode: ON ✅";
+        localURIAddress.innerHTML = `The URI address is: ${localURI}`;
+    } else {
+        console.log("local host mode: OFF");
+        devmodeonoroff = false;
+        devMode = false;
+        localHostModeStatusText.innerHTML= "Local host mode: OFF ❌";
+        localURIAddress.innerHTML = `The URI address is: ${URI}`;
+    }
+}
 
 async function testGET() { // Sends a simple GET request to the Node.js backend
     try {
-        const api = await fetch(URI + 'test', { method: 'GET' });
+        let URIs;
+        if (devMode == true) {URIs = localURI} else if (devMode == false) {URIs = URI} else {URIs = URI};
+        console.log(`Selected URI is: ${URIs}`);
+        const api = await fetch(URIs + 'test', { method: 'GET' });
         const data = await api.json()
         console.log(await data.message);
     } catch (e) {
@@ -28,11 +54,14 @@ async function testGET() { // Sends a simple GET request to the Node.js backend
     }
 };
 
-async function testPOST() { // Sends a POST request to the backend for it to be repeated back
+async function testPOST() { // Sends a POST request to the backend for it to be repeated back 
     const userString = `User: ${userTextField.value}\n Pass: ${passTextField.value}`
     try{
+        let URIs;
+        if (devMode == true) {URIs = localURI} else if (devMode == false) {URIs = URI} else {URIs = URI};
+        console.log(`Selected URI is: ${URIs}`);
         loginStatusText.innerHTML = "Logging you in... 🧾"
-        const response = await fetch(URI + 'testpost', {
+        const response = await fetch(URIs + 'testpost', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
